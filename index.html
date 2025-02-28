@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+    <style>
+        input[type=range]::-webkit-slider-thumb{
+            appearance: none;
+            width: 1.3rem;
+            height: 1.3rem;
+            border: 1px solid rgb(241, 245, 7);
+            border-radius: 2rem;
+            background-color: yellow;
+            box-shadow: 0px 0px 10px yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient-to-tr from-[#6e2e9f] to-[#0c0c0c] w-screen h-screen flex flex-col items-center justify-center gap-5">
+        <h1 class="text-gray-200 font-bold text-2xl ">PASSWORD GENERATOR</h1>
+        <div class="flex items-center justify-between px-6 w-[20rem] h-14 bg-[rgba(0,0,0,0.54)] rounded-xl shadow-[0px_1.5px_3px_0px_#a640f4] relative"><div id="generator" class="text-lg font-bold text-yellow-300">PASSWORD</div><div class="absolute right-[0.3rem] bottom-12 bg-[rgba(0,0,0,0.5)] rounded-md text-white px-2 py-1 font-semibold text-sm scale-0 transition-all ease-out duration-75" id="copytext">Copied !</div><div class="bg-copy w-9 h-9 bg-cover bg-center rounded-full mr-1" onclick="copied()"></div></div>
+        <div class="w-[20rem] h-[22rem] bg-[rgba(0,0,0,0.54)] rounded-xl shadow-[0px_1.5px_3px_0px_#a640f4] flex flex-col gap-2 px-6 text-lg text-gray-200 font-medium justify-evenly py-4" id="contentbox">
+            <div class="flex w-[100%] justify-between text-base">Password Length <div class="text-xl text-yellow-300" id="length">10</div></div>
+            <input type="range" name="ranger" id="ranger" class="appearance-none range h-2 rounded-md bg-purple-500" min="1" max="20" step="1">
+            
+            <form class="flex flex-col gap-1 text-sm ">
+                <div><input type="checkbox" multiple class="mr-1 w-3 h-3 accent-cyan-300 bg-gray-100 border-cyan-300 rounded" id="lower" onclick="checklower()"><label for="">Include Lowercase letters</label></div>
+                <div><input type="checkbox" multiple class="mr-1 w-3 h-3 accent-cyan-300 bg-gray-100 border-cyan-300 rounded" id="upper" onclick="checkupper()"><label for="">Include Uppercase letters</label></div>
+                <div><input type="checkbox" multiple class="mr-1 w-3 h-3 accent-cyan-300 bg-gray-100 border-cyan-300 rounded" id="number" onclick="checknumber()"><label for="" >Include Numbers</label></div>
+                <div><input type="checkbox" multiple class="mr-1 w-3 h-3 accent-cyan-300 bg-gray-100 border-cyan-300 rounded" id="symbol" onclick="checksymbol()"><label for="" >Include Symbols</label></div>
+                <!-- <div><input type="checkbox"><label for="">Include</label></div> -->
+            </form>
+
+            <div class="flex justify-between text-base">Strength <div id="strength" class="w-[1.5rem] h-[1.5rem] rounded-full bg-[rgb(255,0,0)] shadow-[0px_0px_15px_rgb(255,0,0)]"></div></div>
+            <button class="p-2 bg-purple-600 text-[rgb(255,255,0)] font-bold  text-base rounded-md shadow-[0px_4px_2px_0px_rgb(247,214,3)]" onclick="getpassword()">GENERATE PASSWORD</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
